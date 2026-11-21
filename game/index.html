@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEON NIGHTS — Spot 48 Differences</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">
+      <span class="logo">🌙</span>
+      <div>
+        <div class="title">NEON NIGHTS</div>
+        <div class="subtitle">SPOT THE DIFFERENCE &middot; 6 scenes &middot; 48 fair differences</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="k">LEVEL</span><span class="v" id="stat-level">3 &middot; Lantern Alley</span></div>
+      <div class="stat hot"><span class="k">TO FIND</span><span class="v big" id="stat-left">4</span></div>
+      <div class="stat"><span class="k">FOUND</span><span class="v" id="stat-found">4 / 8</span></div>
+      <div class="stat"><span class="k">SCORE</span><span class="v" id="stat-score">1,240</span></div>
+      <div class="stat"><span class="k">STREAK</span><span class="v" id="stat-streak">&times;3</span></div>
+      <div class="stat"><span class="k">TIME</span><span class="v" id="stat-time">1:47</span></div>
+    </div>
+    <div class="actions">
+      <button id="btn-hint" title="Hint (H)">💡 Hint <b id="hint-count">3</b></button>
+      <button id="btn-lens" title="Magnifier (L)">🔍 Lens</button>
+      <button id="btn-restart" title="Restart level (R)">↻ Restart</button>
+      <button id="btn-sound" title="Sound (M)">🔊 Sound</button>
+      <button id="btn-pause" title="Pause (P)">⏸ Pause</button>
+    </div>
+  </header>
+
+  <div id="progress-wrap"><div id="progress-bar"></div><span id="progress-label">4 of 8 found &middot; Level 3 of 6</span></div>
+
+  <div id="levels-row" aria-label="Choose level"></div>
+
+  <main id="boards">
+    <section class="panel">
+      <div class="panel-tag"><span>◉ ORIGINAL</span><span class="panel-note">study me</span></div>
+      <div class="canvas-wrap"><canvas id="canvas-left" width="560" height="360"></canvas></div>
+    </section>
+    <div id="middle">
+      <div id="to-find"><span id="to-find-num">4</span><span>TO FIND</span></div>
+      <div id="combo" class="hidden">COMBO &times;3!</div>
+      <div id="diff-kinds">removed &middot; recoloured<br>moved &middot; resized<br>flipped &middot; added</div>
+      <div id="wrong-note">wrong click −5s</div>
+    </div>
+    <section class="panel">
+      <div class="panel-tag"><span>◎ SPOT THE CHANGES</span><span class="panel-note">click the differences here</span></div>
+      <div class="canvas-wrap"><canvas id="canvas-right" width="560" height="360"></canvas>
+        <canvas id="lens" width="150" height="150"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer id="bottombar">
+    <div id="found-list"><span class="k">FOUND:</span><span id="found-names">✓ Red Paper Lantern &nbsp;✓ Golden Moon &nbsp;✓ Sleeping Cat &nbsp;✓ Tea Stall Sign</span></div>
+    <div id="howto"><b>HOW TO PLAY:</b> The two pictures look the same — but 8 things changed on the right.
+      Click a change to ring it. Find all 8 before the clock runs out. <b>H</b> hint &middot; <b>L</b> lens &middot; <b>1–6</b> level &middot; <b>R</b> restart &middot; <b>P</b> pause</div>
+  </footer>
+
+  <div id="overlay" class="hidden">
+    <div id="overlay-card">
+      <div id="overlay-title">LEVEL CLEAR!</div>
+      <div id="overlay-sub"></div>
+      <div id="overlay-levels"></div>
+      <div id="overlay-buttons"><button id="overlay-next">Next level →</button><button id="overlay-replay">↻ Replay</button></div>
+    </div>
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
